@@ -36,6 +36,10 @@ COPY git-shell-commands /home/git/git-shell-commands
 COPY sshd_config /etc/ssh/sshd_config
 COPY start.sh start.sh
 
+# Symlink repos directory for convenience
+RUN ln -s /git-server/repos /home/git/git
+RUN ln -s /git-server/repos /git
+
 EXPOSE 22
 
 CMD ["sh", "start.sh"]
